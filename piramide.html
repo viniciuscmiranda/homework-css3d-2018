@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>&#65279;</title>
+	<style type="text/css">
+		*{
+			margin: 0; 
+			padding: 0;
+			user-select: none;
+		}
+
+		body{
+			/* var */
+			--bg: #000;
+			--txt: #eee;
+			--size: 40vh;
+			--deg: 30.1deg;
+			--opc: 0.6;
+			overflow: hidden;
+
+			background-color: #eee;
+		}
+
+		#container{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+
+			transform: translate(-50%, -50%);
+
+			width: var(--size);
+			height: var(--size);
+		}
+
+		#box{
+			transform-style: preserve-3d;
+			animation: 3s rot linear infinite;
+			cursor: pointer;
+		}
+
+		
+		
+		.face{
+			opacity: var(--opc);
+			position: absolute;
+			transition: transform-origin ease-in 5s;
+			
+			border-style: solid;
+			border-width: 
+				0 
+				calc(var(--size) / 2) 
+				var(--size) 
+				calc(var(--size) / 2)
+			;
+			border-color: transparent transparent var(--bg) transparent;
+		}
+
+		#box:hover .face{
+			transform-origin: -150% -150%;
+		}
+
+		#fro{
+			transform: 
+				translateZ(calc(var(--size) / 4))
+				translateY(calc(var(--size) / 14))
+				rotateX(var(--deg))
+			;
+
+		}
+
+		#bac{
+			transform: 
+				translateZ(calc(var(--size) / -4))
+				translateY(calc(var(--size) / 14))
+				rotateX(calc(var(--deg) * -1))
+			;
+
+			
+		}
+
+		#lef{
+			transform: 
+				translateX(calc(var(--size) / -4))
+				translateY(calc(var(--size) / 14))
+				rotateY(90deg)
+				rotateX(calc(var(--deg) * -1))
+			;
+		}
+
+		#rig{
+			transform: 
+				translateX(calc(var(--size) / 4))
+				translateY(calc(var(--size) / 14))
+				rotateY(90deg)
+				rotateX(var(--deg))
+			;
+		}
+
+		#bot{
+			transform: rotateX(-90deg) translateY(calc(var(--size) / 2));
+			transform-origin: bottom;
+			width: var(--size);
+			height: var(--size);
+			background-color: var(--bg);
+			opacity: var(--opc);
+
+			color: var(--txt);
+			text-align: center;
+		}
+
+		h1{
+			position: absolute;
+			font-family: consolas;
+			font-size: 4vh;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+
+		@keyframes rot{
+			from{ transform: rotateY(0deg) rotateX(20deg); }
+			to{ transform: rotateY(360deg) rotateX(20deg); }
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="box">
+			<div class="face" id="fro"></div>
+			<div class="face" id="bac"></div>
+			<div class="face" id="lef"></div>
+			<div class="face" id="rig"></div>
+			<div id="bot"><h1>we are watching you</h1></div>
+		</div>
+	</div>
+</body>
+</html>

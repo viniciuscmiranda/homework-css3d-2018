@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	<title>&#65279;</title>
+ 	<style type="text/css">
+ 		*{
+			margin: 0; 
+			padding: 0;
+			user-select: none;
+		}
+
+		body{
+			/* var */
+			--bg: black;
+			--size: 20vh;
+			--txt: #eee;
+			--opc: 0.6;
+			overflow: hidden;
+
+			background-color: #eee;
+		}
+
+		#container{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+
+			transform: translate(-50%, -50%);
+
+			width: var(--size);
+			height: var(--size);
+		}
+
+    	#box{
+			transform-style: preserve-3d;
+			animation: 3s rot linear infinite;
+			cursor: pointer;
+		}
+
+		.face{
+			position: absolute;
+			opacity: var(--opc);
+			transform-origin: 0 0;
+			transition: transform-origin ease-in 5s;
+
+		    border-style: solid;
+		    border-width: 
+		    	var(--size) 
+		    	0 
+		    	var(--size) 
+		    	calc(var(--size) * 1.73)
+		    ;
+		    border-color: transparent transparent transparent var(--bg);
+		}
+
+		#box:hover .face{
+			transform-origin: -150% -150%;
+		}
+
+		#fro{
+		    transform:         
+		    	rotateY(-19.5deg)
+		    	rotateX(180deg)
+		    	translateY(calc(var(--size) * -2))
+		    ;
+		}
+
+		#bac{
+		    transform:         
+		    	rotateY(90deg)
+		    	rotateZ(60deg)
+		    	rotateX(180deg)
+		    	translateY(calc(var(--size) * -2))
+		    ;
+		}
+
+		#lef{
+		    transform:
+		    rotateX(60deg) 
+		    rotateY(19.5deg)
+		   ;
+		}
+
+		#bot{
+		    transform:         
+				rotateX(-60deg) 
+				rotateY(19.5deg) 
+				translateX(calc(var(--size) / -1.72)) 
+				translateY(calc(var(--size) * -1))
+				translateZ(calc(var(--size) * 1.63)) 
+			;
+		}
+
+		#bot:after{
+		    position: absolute;
+		    font-size: 3vh;
+		    content: "look your back";
+		    color: var(--txt);
+		    left: calc(var(--size) * -1.7);
+		    text-align: center;
+		    font-family: consolas;
+		}
+
+		@keyframes rot{
+			from{ transform: rotateY(0deg) rotateX(20deg); }
+			to{ transform: rotateY(360deg) rotateX(20deg); }
+		}
+	</style>
+</head>
+<body>
+    <div id="container">
+		<div id="box">
+			<div class="face" id="fro"></div>
+			<div class="face" id="bac"></div>
+			<div class="face" id="lef"></div>
+			<div class="face" id="bot"></div>
+		</div>
+	</div>
+</body>
+</html>

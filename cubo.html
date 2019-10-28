@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>&#65279;</title>
+	<style type="text/css">
+		*{
+			margin: 0; 
+			padding: 0;
+			user-select: none;
+		}
+
+		body{
+			/* var */
+			--txt: #aaa;
+			--bg: #000;
+			--size: 30vh;
+			--opc: 0.6;
+
+			overflow: hidden;
+			background-color: #eee;
+		}
+
+		#container{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+
+			transform: translate(-50%, -50%);
+
+			width: var(--size);
+			height: var(--size);
+		}
+
+		#box{
+			transform-style: preserve-3d;
+
+			animation: 3s rot linear infinite;
+			transform-origin: top;
+			cursor: pointer;
+		}
+
+		.face{
+			border: calc(var(--size) / 800) solid var(--txt);
+			background-color: var(--bg);
+			opacity: var(--opc);
+			transition: transform-origin ease-in 5s;
+			
+			color: var(--txt);
+			text-align: center;
+			font-family: consolas;
+
+			font-size: calc(var(--size) / 6);
+
+			position: absolute;
+			width: var(--size);
+			height: var(--size);
+		}
+
+		#box:hover .face{
+			transform-origin: -150% -150%;
+		}
+
+		.face h1{ 
+			margin-top: 50%;
+			transform: translate(0,-50%);
+		}
+
+		#fro{
+			transform: translateZ(calc(var(--size) / 2));
+		}
+
+		#bac{
+			transform: rotateY(180deg)  translateZ(calc(var(--size) / 2));
+		}
+
+		#lef{
+			transform: rotateY(-90deg) translateX(calc(var(--size) / -2));
+			transform-origin: left;
+		}
+
+		#rig{
+			transform: rotateY(90deg) translateX(calc(var(--size) / 2));
+			transform-origin: right;
+		}
+
+		#top{
+			transform: rotateX(90deg) translateY(calc(var(--size) / -2));
+			transform-origin: top;
+		}
+
+		#bot{
+			transform: rotateX(-90deg) translateY(calc(var(--size) / 2));
+			transform-origin: bottom;
+		}
+
+		@keyframes rot{
+			from{ transform: rotateY(0deg) rotateX(45deg); }
+			to{ transform: rotateY(360deg) rotateX(45deg); }
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="box">
+			<div class="face" id="fro"><h1>look</h1></div>
+			<div class="face" id="bac"><h1>your</h1></div>
+			<div class="face" id="lef"><h1>bed</h1></div>
+			<div class="face" id="rig"><h1>under</h1></div>
+			<div class="face" id="top"><h1>:)</h1></div>
+			<div class="face" id="bot"><h1>:(</h1></div>
+		</div>
+	</div>
+</body>
+</html>

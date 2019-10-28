@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GIRA GIRA</title>
+
+	<style type="text/css">
+		*{
+			margin: 0; 
+			padding: 0;
+		}
+
+		body{background-color: black;}
+
+		#container{
+			transform-style: preserve-3d;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+
+
+			animation: 6s roda infinite linear;
+		}
+
+		#container:hover{
+			animation-play-state: paused;
+		}
+
+		@keyframes roda{
+			from{
+				transform:rotateY(0deg) rotateX(180deg);
+			}
+
+
+			to{
+				transform:rotateY(360deg) rotateX(540deg);
+			}
+		}
+
+		.cubo{
+			position: absolute;
+			background-color: rgba(0,0,0,0.7);
+			width: 300px;
+			height: 300px;
+			color: white;
+			border: 4px solid rgba(255,255,255,0.6);
+			font-size: 100px;
+			text-align: center;
+			font-family: consolas;
+		}
+
+		.cubo h1{ 
+			margin-top: 50%;
+			transform: translate(0,-50%);
+		}
+
+		#bac{}
+
+		#fro{transform: translateZ(300px);}
+
+		#bot{
+			
+			top: 155px;
+			transform: rotateX(90deg) translateY(150px);
+		}
+
+		#top{
+			bottom: -155px;
+			transform: rotateX(90deg) translateY(150px);
+		}
+
+		#lef{
+			right: -155px;
+			transform: rotateY(90deg) translateX(-150px);
+		}
+
+		#rig{
+			left: 155px;
+			transform: rotateY(90deg) translateX(-150px);
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="cubo" id="fro"><h1>:)</h1></div>
+		<div class="cubo" id="bot"><h1>B)</h1></div>
+		<div class="cubo" id="top"><h1>:(</h1></div>
+		<div class="cubo" id="rig"><h1>xD</h1></div>
+		<div class="cubo" id="lef"><h1>:c</h1></div>
+		<div class="cubo" id="bac"><h1>:v</h1></div>
+	</div>
+</body>
+</html>
